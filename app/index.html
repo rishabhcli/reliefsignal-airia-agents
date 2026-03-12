@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#06131d">
+    <meta
+      name="description"
+      content="ReliefSignal turns field updates, volunteer notes, and needs assessments into a live disaster-relief coordination workspace."
+    >
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <title>ReliefSignal</title>
+  </head>
+  <body>
+    <div class="page-glow page-glow-left" aria-hidden="true"></div>
+    <div class="page-glow page-glow-right" aria-hidden="true"></div>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="masthead panel">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true">
+            <span>RS</span>
+            <i></i>
+          </div>
+          <div>
+            <p class="eyebrow">ReliefSignal</p>
+            <p class="masthead-copy">AI-assisted disaster relief coordination workspace.</p>
+          </div>
+        </div>
+        <div class="masthead-badges" aria-label="Product capabilities">
+          <span>Offline ready</span>
+          <span>Local-first</span>
+          <span>Static deploy</span>
+        </div>
+      </header>
+
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow">AI-assisted disaster relief coordination</p>
+          <h1>ReliefSignal</h1>
+          <p class="hero-text">
+            Turn incoming field updates, volunteer notes, and needs assessments into a live priority queue,
+            response brief, coordination checklist, and outreach plan.
+          </p>
+          <div class="hero-actions">
+            <button class="primary-button" id="generateButton" type="button">Build response queue</button>
+            <button class="secondary-button" id="demoButton" type="button">Load flood response demo</button>
+          </div>
+
+          <div class="hero-feature-grid" aria-label="ReliefSignal capabilities">
+            <article class="hero-feature-card">
+              <p>Triage</p>
+              <strong>Ranks the most urgent field signals using urgency, impact, and effort scoring.</strong>
+            </article>
+            <article class="hero-feature-card">
+              <p>Verify</p>
+              <strong>Separates incoming noise from verified actions that are ready for dispatch.</strong>
+            </article>
+            <article class="hero-feature-card">
+              <p>Mobilize</p>
+              <strong>Maps owners, timeboxes, and response windows across the next 72 hours.</strong>
+            </article>
+            <article class="hero-feature-card">
+              <p>Brief</p>
+              <strong>Keeps a polished response brief ready for coordinators, partners, and local volunteers.</strong>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero-rail">
+          <article class="hero-preview">
+            <div class="hero-preview-header">
+              <p class="kicker">Operations snapshot</p>
+              <span class="live-pill">Live response</span>
+            </div>
+            <div class="preview-radar" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <strong id="heroHeadline"></strong>
+            <p id="heroSubline"></p>
+            <div class="hero-preview-strip" id="heroPreviewStrip"></div>
+          </article>
+
+          <div class="hero-stats" id="statsGrid" aria-label="Response metrics"></div>
+        </div>
+      </section>
+
+      <section class="overview-grid">
+        <section class="panel overview-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Priority load</p>
+              <h2>Queue heat</h2>
+            </div>
+          </div>
+          <div class="priority-bands" id="priorityBands" aria-label="Priority distribution"></div>
+        </section>
+
+        <section class="panel overview-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Immediate moves</p>
+              <h2>Top actions</h2>
+            </div>
+          </div>
+          <div class="spotlight-list" id="spotlightList" aria-label="Action spotlight"></div>
+        </section>
+
+        <section class="panel overview-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Sector mix</p>
+              <h2>Response balance</h2>
+            </div>
+          </div>
+          <div class="category-bars" id="categoryBars" aria-label="Category distribution"></div>
+        </section>
+      </section>
+
+      <section class="workspace-grid">
+        <section class="panel composer-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Incoming feed</p>
+              <h2>Field intake</h2>
+            </div>
+            <button class="ghost-button" id="resetButton" type="button">Reset</button>
+          </div>
+
+          <div class="meta-grid">
+            <label class="field">
+              <span>Operation</span>
+              <input id="workspaceName" type="text" maxlength="60">
+            </label>
+
+            <label class="field">
+              <span>Response objective</span>
+              <input id="objectiveInput" type="text" maxlength="120">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Field updates, volunteer notes, or needs assessments</span>
+            <textarea
+              id="sourceInput"
+              rows="12"
+              spellcheck="true"
+              placeholder="Paste notes from WhatsApp groups, field teams, clinics, shelters, or coordination calls."
+            ></textarea>
+          </label>
+
+          <div class="composer-footer">
+            <p class="helper-text">
+              Drop in raw coordination notes. ReliefSignal shapes the next 72 hours.
+            </p>
+            <p class="status-line" id="statusLine"></p>
+          </div>
+        </section>
+
+        <aside class="panel summary-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Command brief</p>
+              <h2>Signal board</h2>
+            </div>
+          </div>
+
+          <div class="insight-stack" id="insightCards"></div>
+
+          <div class="brief-panel">
+            <div class="brief-header">
+              <div>
+                <p class="kicker">Export</p>
+                <h3>Response brief</h3>
+              </div>
+              <div class="brief-actions">
+                <button class="ghost-button" id="copyBriefButton" type="button">Copy</button>
+                <button class="secondary-button" id="downloadBriefButton" type="button">Download</button>
+              </div>
+            </div>
+            <textarea id="briefPreview" rows="16" readonly aria-label="Response brief preview"></textarea>
+          </div>
+        </aside>
+      </section>
+
+      <section class="board-grid">
+        <section class="panel board-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">Coordination lanes</p>
+              <h2>Response board</h2>
+            </div>
+            <p class="helper-text">Drag on desktop or change the lane on each card.</p>
+          </div>
+
+          <div class="board-columns" id="boardColumns" aria-label="Relief coordination board"></div>
+        </section>
+
+        <section class="panel roadmap-panel">
+          <div class="section-heading">
+            <div>
+              <p class="kicker">72-hour response window</p>
+              <h2>Timeline</h2>
+            </div>
+          </div>
+
+          <div class="roadmap-grid" id="roadmapGrid" aria-label="Operational timeline"></div>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
