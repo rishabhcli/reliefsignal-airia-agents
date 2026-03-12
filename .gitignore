@@ -1,0 +1,9 @@
+node_modules/
+npm-debug.log*
+.tmp/
+public/
+docs/.vercel/
+artifacts/
+devpost/
+research/
+README.base.md
