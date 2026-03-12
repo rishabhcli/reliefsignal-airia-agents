@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="ReliefSignal">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04111a" />
+      <stop offset="50%" stop-color="#0b3045" />
+      <stop offset="100%" stop-color="#0d5060" />
+    </linearGradient>
+    <linearGradient id="pulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6a3d" />
+      <stop offset="100%" stop-color="#ffd36a" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)" />
+  <circle cx="64" cy="64" r="10" fill="#f4fbff" />
+  <path d="M64 28c16 0 30 6 40 17" fill="none" stroke="url(#pulse)" stroke-linecap="round" stroke-width="8" />
+  <path d="M64 100c16 0 30-6 40-17" fill="none" stroke="#68f0e0" stroke-linecap="round" stroke-width="8" />
+  <path d="M24 47c10-11 24-19 40-19" fill="none" stroke="#5bc2ff" stroke-linecap="round" stroke-width="8" />
+  <path d="M24 81c10 11 24 19 40 19" fill="none" stroke="#68f0e0" stroke-linecap="round" stroke-width="8" />
+  <circle cx="64" cy="64" r="24" fill="none" stroke="#f4fbff" stroke-opacity="0.45" stroke-width="4" />
+  <circle cx="64" cy="64" r="40" fill="none" stroke="#5bc2ff" stroke-opacity="0.25" stroke-width="4" />
+</svg>
