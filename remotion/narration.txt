@@ -1,0 +1,31 @@
+ReliefSignal is a local-first disaster relief coordination workspace built for the first 72 hours of response.
+In this walkthrough, I will show how raw field updates become a live priority queue, a response brief, a checklist, and an outreach plan.
+
+Most community responders already have the information they need.
+What they do not have is a clean way to organize it fast enough.
+Updates arrive from messaging groups, volunteers, clinics, shelters, and local leaders in one messy stream.
+That makes it easy for urgent needs to get buried.
+
+ReliefSignal starts with that raw intake.
+It turns field notes and needs assessments into structured response signals.
+Each signal is scored for urgency, impact, and effort so the queue surfaces what matters first.
+
+From there, the workspace gives coordinators a clear response board.
+Signals move from incoming to verified, mobilizing, and resolved.
+That keeps the team focused on what is still unconfirmed, what is already in motion, and what has been closed.
+
+ReliefSignal also maps the next 72 hours.
+That timeline matters because responders need more than a list.
+They need a believable operating rhythm they can explain to volunteers, shelter leads, clinics, and local officials.
+
+Another important layer is the export.
+The app produces a response brief, a coordination checklist, and a partner outreach plan from the same local state.
+That makes the product useful beyond the screen itself.
+
+Under the hood, the build stays intentionally practical.
+ReliefSignal runs fully in the browser, stores the workspace locally, and supports offline usage with a service worker.
+There is no backend dependency, no secrets, and no fragile demo setup.
+
+This project fits the Airia AI Agents Hackathon because it shows a clear multi-agent coordination story in a high-pressure workflow.
+The result is not just a concept.
+It is a polished, inspectable product for real operational pressure.
