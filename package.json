@@ -23,6 +23,11 @@
     "offline"
   ],
   "license": "MIT",
+  "homepage": "https://github.com/rishabhcli/reliefsignal-airia-agents",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabhcli/reliefsignal-airia-agents.git"
+  },
   "devDependencies": {
     "@remotion/cli": "^4.0.434",
     "react": "^19.2.4",
