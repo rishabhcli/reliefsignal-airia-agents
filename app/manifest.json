@@ -1,0 +1,15 @@
+{
+  "name": "ReliefSignal",
+  "short_name": "ReliefSignal",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#04111a",
+  "theme_color": "#06131d",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
