@@ -1,0 +1,32 @@
+{
+  "name": "reliefsignal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ReliefSignal turns field updates, volunteer notes, and needs assessments into a polished disaster relief coordination workspace.",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs app 3000",
+    "start": "node scripts/serve.mjs docs 4173",
+    "test": "node --test",
+    "build": "node scripts/build.mjs",
+    "verify": "npm run test && npm run build && node scripts/verify.mjs",
+    "video:build": "node scripts/build-demo-video.mjs",
+    "video:preview": "remotion studio remotion/index.ts"
+  },
+  "keywords": [
+    "hackathon",
+    "social-good",
+    "disaster-relief",
+    "coordination",
+    "emergency-response",
+    "local-first",
+    "offline"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@remotion/cli": "^4.0.434",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.434"
+  }
+}
